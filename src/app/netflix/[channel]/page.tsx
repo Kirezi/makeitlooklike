@@ -6,14 +6,13 @@ import FeaturedFilms from "components/FeaturedFilm/FeaturedFilm";
 import { YoutubeSearchResult } from "interface/youtube";
 import MovieRow from "components/MovieRow";
 
-const NEXT_PUBLIC_YOUTUBE_API_KEY = "AIzaSyB9BejM0i27PbUNJpdzqKgBrFtoErYAq_E";
 const client = axios.create({
   baseURL: "https://www.googleapis.com/youtube/v3",
   params: {
     part: "snippet",
     type: "video",
-    maxResults: 10,
-    key: NEXT_PUBLIC_YOUTUBE_API_KEY,
+    maxResults: 20,
+    key: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
   },
 });
 
@@ -53,19 +52,7 @@ export default async function page({ params: { channel } }: Props) {
       <Typography variant='h5' fontWeight='700' sx={{ paddingLeft: 3 }}>
         Recently Added
       </Typography>
-      {/* <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          transition: "all 0.5s ease",
-          overflowX: "hidden",
-          gap: "1rem",
-        }}
-      >
-        {youTubeVideo?.map((item: any) => (
-          <MovieRow movie={item} key={item?.etag} />
-        ))}
-      </Box> */}
+
       <Grid container spacing={2}>
         {youTubeVideo?.map((item: any) => (
           <Grid item xs={6} sm={3} key={item?.etag}>

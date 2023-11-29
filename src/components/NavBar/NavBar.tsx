@@ -12,10 +12,11 @@ export default function NavBar() {
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
+        transition: "all ease 0.5s",
         flexGrow: 1,
       }}
     >
-      <AppBar position='static' color='transparent'>
+      <AppBar position='sticky' color='transparent' sx={{}}>
         <Toolbar
           sx={{
             display: "flex",
